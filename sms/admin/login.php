@@ -1,13 +1,30 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/dbconnection.php');
-
+// DB credentials.
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','');
+define('DB_NAME','smsdb');
+// Establish database connection.
+try
+{
+    $dbh = new PDO(
+        "mysql:host=".DB_HOST.";port=3307;dbname=".DB_NAME,
+        DB_USER,
+        DB_PASS,
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")
+     );
+     }
+catch (PDOException $e)
+{
+exit("Error: " . $e->getMessage());
+}
 if(isset($_POST['login'])) 
   {
     $username=$_POST['username'];
     $password=md5($_POST['password']);
-    $sql ="SELECT I FROM tbladmin WHERE UserName=:username and Password=:password";
+    $sql ="SELECT ID FROM tbladmin WHERE UserName=:username and Password=:password";
     $query=$dbh->prepare($sql);
     $query-> bindParam(':username', $username, PDO::PARAM_STR);
     $query-> bindParam(':password', $password, PDO::PARAM_STR);

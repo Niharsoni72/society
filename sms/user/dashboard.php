@@ -1,10 +1,24 @@
 <?php
 session_start();
 error_reporting(0);
-include('includes/dbconnection.php');
-if (strlen($_SESSION['smsuid']==0)) {
-  header('location:logout.php');
-  } else{
+define('DB_HOST','localhost');
+define('DB_USER','root');
+define('DB_PASS','');
+define('DB_NAME','smsdb');
+// Establish database connection.
+try
+{
+    $dbh = new PDO(
+        "mysql:host=".DB_HOST.";port=3307;dbname=".DB_NAME,
+        DB_USER,
+        DB_PASS,
+        array(PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'utf8'")
+     );
+     }
+catch (PDOException $e)
+{
+exit("Error: " . $e->getMessage());
+}
     
 
 ?>
@@ -106,4 +120,4 @@ foreach($result2 as $row)
 </body>
 </html>
 
-<?php }  ?>
+<?php  ?>

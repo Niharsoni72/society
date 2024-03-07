@@ -2,9 +2,9 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if (strlen($_SESSION['smsuid']==0)) {
-  header('location:logout.php');
-  } else{
+// if (strlen($_SESSION['smsuid']==0)) {
+//   header('location:logout.php');
+//   } else{
     if(isset($_POST['submit']))
   {
 
@@ -160,4 +160,4 @@ echo "<script>window.location.href ='raise-complain.php'</script>";
 </body>
 </html>
 
-<?php }  ?>
+<?php   ?>

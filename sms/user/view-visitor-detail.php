@@ -2,9 +2,6 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-if (strlen($_SESSION['smsuid']==0)) {
-  header('location:logout.php');
-  } else{
     
 
 ?>
@@ -174,4 +171,4 @@ foreach($results as $row)
 </body>
 </html>
 
-<?php }  ?>
+<?php   ?>

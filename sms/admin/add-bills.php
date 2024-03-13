@@ -2,16 +2,17 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-// if (strlen($_SESSION['smsuid']==0)) {
-//   header('location:logout.php');
-//   } else{
-    
+if (strlen($_SESSION['smsaid']==0)) {
+  header('location:logout.php');
+  } else{
+   
+
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>Society Mentainence System || Visitor Reports</title>
+<title>Society Mentainence System || Add Bills</title>
 
 <!-- VENDOR CSS -->
 <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -23,7 +24,19 @@ include('includes/dbconnection.php');
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
+<script>
+function getblock(val) {
+  $.ajax({
+type:"POST",
+url:"get-block.php",
+data:'blockname='+val,
+success:function(data){
+$("#flatnum").html(data);
+}
+});
 
+
+}</script>
 </head>
 <body class="theme-blue">
 
@@ -48,12 +61,12 @@ include('includes/dbconnection.php');
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-5 col-md-8 col-sm-12">                        
-                        <h2>Visitor Report</h2>
+                        <h2>Add Bills</h2>
                     </div>            
                     <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
-                            <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li> 
-                            <li class="breadcrumb-item active">Visitor Report</li>
+                            <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
+                            <li class="breadcrumb-item active">Add Bills</li>
                         </ul>
                     </div>
                 </div>
@@ -63,22 +76,46 @@ include('includes/dbconnection.php');
                 <div class="col-md-12">
                     <div class="card">
                         <div class="header">
-                            <h2>Visitor Report</h2>
+                            <h2>Add Bills</h2>
                         </div>
                         <div class="body">
                            
-                            <form id="basic-form" method="post" name="bwdatesreport" action="visitor-bwdates-reports-details.php">
-                                <div class="form-group">
-                                    <label>From Date</label>
-                                    <input type="date" id="fromdate" name="fromdate" value="" class="form-control" required="true"></div>
+                            <form id="basic-form" method="post" name="search" action="update-bills.php">
+                               
                                 
                                 <div class="form-group">
-                                    <label>To Date</label>
-                                    <input type="date" id="todate" name="todate" value="" class="form-control" required="true">
+                                    <label>Block</label>
+<select type="text" name="block" id="block" value="" onChange="getblock(this.value)" class="form-control" required="true">
+<option value="">Choose Block</option>
+                                                        <?php 
+
+$sql2 = "SELECT * from   tblblocks ";
+$query2 = $dbh -> prepare($sql2);
+$query2->execute();
+$result2=$query2->fetchAll(PDO::FETCH_OBJ);
+
+foreach($result2 as $row)
+{          
+    ?>  
+<option value="<?php echo htmlentities($row->BlockName);?>"><?php echo htmlentities($row->BlockName);?></option>
+ <?php } ?> 
+            
+                                                        
+                                                    </select>
                                 </div>
-                           
+                               
+                             <div class="form-group">
+                                    <label>Flat Number</label>
+                                    <select type="text" name="flatnum" id="flatnum" value="" class="form-control" required="true">
+<option value="">Choose Flat Number</option>
+      
+                                                        
+                                                    </select>
+                                </div>
+                               
+                               
                                 <br>
-                                <button type="submit" class="btn btn-primary" name="submit" id="submit">Submit</button>
+                                <button type="submit" class="btn btn-primary" name="search" id="search">Search</button>
                             </form>
                         </div>
                     </div>
@@ -112,4 +149,4 @@ include('includes/dbconnection.php');
 </body>
 </html>
 
-<?php   ?>
+<?php }  ?>

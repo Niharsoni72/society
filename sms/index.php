@@ -34,8 +34,10 @@
 						  <div class="collapse navbar-collapse justify-content-end align-items-center" id="navbarSupportedContent">
 						    <ul class="navbar-nav">
 								<li><a href="index.php">Home</a></li>
-								<li><a href="admin/login.php">Admin</a></li>
+								<!-- <li><a href="admin/login.php">Admin</a></li>  -->
 								<li><a href="user/login.php">User</a></li>
+								<li><a href="user/gallery.php">Gallery</a></li>
+								<li><a href="user/contact.php">Contact US</a></li>
 								
 						    </ul>
 						  </div>						
@@ -50,7 +52,7 @@
 			<section class="banner-area relative" id="home">
 				<div class="overlay overlay-bg"></div>
 				<div class="container">
-					<div class="row fullscreen align-items-center justify-content-center" style="height: 915px;">
+					<div class="row fullscreen align-items-center justify-content-center" style="height: 800px;">
 						<div class="banner-content col-lg-12 col-md-12">
 							<h1 class="text-uppercase">
 								Society Management System

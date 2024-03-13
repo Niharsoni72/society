@@ -57,12 +57,23 @@ if (isset($_POST['login'])) {
         <div class="vertical-align-wrap">
             <div class="vertical-align-middle auth-main">
                 <div class="auth-box">
-                    <div class="mobile-logo"><a href="dashboard.php"><img src="../assets/images/logo-icon.svg" alt="Mplify"></a></div>
+                    <div class="mobile-logo"><a href="login.php"><img src="../assets/images/logo-icon.svg" alt="Mplify"></a></div>
+                    <div class="auth-left">
+                        <div class="left-top">
+
+                            <span>Society Mgmt System</span>
+
+                        </div>
+                        <div class="left-slider">
+                            <img src="../assets/images/login/1.jpg" class="img-fluid" alt="">
+                        </div>
+                    </div>
                     <div class="auth-right">
                         <div class="card">
                             <div class="header">
                                 <p class="lead">Sign in to start your session</p>
                             </div>
+
                             <div class="body">
                                 <form class="form-auth-small" action="" method="post">
                                     <div class="form-group">
@@ -70,13 +81,30 @@ if (isset($_POST['login'])) {
                                         <input type="text" class="form-control" placeholder="Flat Number" required="true" name="flatnum">
                                     </div>
                                     <div class="form-group">
-                                        <label for="signin-password" class="control-label sr-only">Password</label>
-                                        <input type="password" class="form-control" placeholder="Password" required="true" name="password">
-                                    </div>
-                                    <button type="submit" class="btn btn-primary btn-lg btn-block" name="login">LOGIN</button>
-                                    <div class="bottom">
-                                        <span class="helper-text m-b-10"><i class="fa fa-home"></i> <a href="../index.php">Back Home</a></span>
-                                    </div>
+                                        <label for="signin-password" class="control-label sr-only">Block</label>
+                                        <select type="text" name="block" id="block" value="" onChange="getblock(this.value)" class="form-control" required="true">
+                                            <option value="">Choose Block</option>
+                                            <?php
+
+                                            $sql2 = "SELECT * from   tblblocks ";
+                                            $query2 = $dbh->prepare($sql2);
+                                            $query2->execute();
+                                            $result2 = $query2->fetchAll(PDO::FETCH_OBJ);
+
+                                            foreach ($result2 as $row) {
+                                            ?>
+                                                <option value="<?php echo htmlentities($row->BlockName); ?>"><?php echo htmlentities($row->BlockName); ?></option>
+                                            <?php } ?>
+                                        </select>
+
+                                        <div class="form-group">
+                                            <label for="signin-password" class="control-label sr-only">Password</label>
+                                            <input type="password" class="form-control" placeholder="Password" required="true" name="password">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary btn-lg btn-block" name="login">LOGIN</button>
+                                        <div class="bottom">
+                                            <span class="helper-text m-b-10"><i class="fa fa-home"></i> <a href="../index.php">Back To Home</a></span>
+                                        </div>
                                 </form>
                             </div>
                         </div>

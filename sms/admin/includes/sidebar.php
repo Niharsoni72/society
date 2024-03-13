@@ -33,7 +33,7 @@
                             <li><a href="unresolved-complain.php">Un Resolved</a></li>
                             <li><a href="inprogress-complain.php">In Progress</a></li>
                             <li><a href="resolved-complain.php">Resolved</a></li>
-                            <li><a href="total-complain-complain.php">Total Complain</a></li>
+                            <li><a href="total-complain.php">Total Complain</a></li>
                         </ul>
                     <li>
                         <a href="" class="has-arrow"><i class="icon-users"></i><span>Visitors</span></a>

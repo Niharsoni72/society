@@ -2,13 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+if (strlen($_SESSION['smsaid']==0)) {
+  header('location:logout.php');
+  } else{
+
+
 
   ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>Society Maintenance System ||Visitor Between Dates Reports</title>
+<title>Society Maintenance System || Complain Status</title>
 
 <!-- VENDOR CSS -->
 <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -55,12 +60,12 @@ include('includes/dbconnection.php');
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-5 col-md-8 col-sm-12">                        
-                        <h2>Between Dates Reports</h2>
+                        <h2>Complain Detail</h2>
                     </div>            
                     <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Between Dates Reports</li>
+                             <li class="breadcrumb-item active">Complain Detail</li>
                         </ul>
                     </div>
                 </div>
@@ -70,13 +75,7 @@ include('includes/dbconnection.php');
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="m-t-0 header-title">Between Dates Reports</h4>
-                                    <?php
-$fdate=$_POST['fromdate'];
-$tdate=$_POST['todate'];
-$fuid=$_SESSION['smsfuid'];
-?>
-<h5 align="center" style="color:blue">Report from <?php echo $fdate?> to <?php echo $tdate?></h5>                           
+                            <h2>Unresolved Complain</h2>                            
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -84,17 +83,18 @@ $fuid=$_SESSION['smsfuid'];
          <thead>
          <tr>
          <th>S.NO</th>
-       <th>Visitor Name</th>
-        <th>Contact Number</th>
-        <th>Whom To Visit</th>
-         <th>Action</th>
+       <th>Request ID</th>
+        <th>Complain Type</th>
+        <th>Complain Date</th>
+        <th>Complain Status</th>
+        <th>Action</th>
           </tr>
          </thead>
          <tbody>
                                         <?php
-$sql="SELECT * from tblvisitor where date(EnterDate) between '$fdate' and '$tdate' && FlatNo=:fuid";
+                                      
+$sql= "SELECT * from tblcomplain where Status is null";
 $query = $dbh -> prepare($sql);
-$query-> bindParam(':fuid', $fuid, PDO::PARAM_STR);
 
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
@@ -106,11 +106,17 @@ foreach($results as $row)
 {               ?>
                                         <tr>
                                            <td><?php echo htmlentities($cnt);?></td>
-                  <td><?php  echo htmlentities($row->VisitorName);?>
+                  <td><?php  echo htmlentities($row->RequestID);?>
                   </td>
-                  <td><?php  echo htmlentities($row->MobileNumber);?></td>
-                  <td><?php  echo htmlentities($row->WhomtoMeet);?></td>
-                   <td> <a href="view-visitor-detail.php?editid=<?php echo htmlentities ($row->ID);?>">View Details</a></td>
+                  <td><?php  echo htmlentities($row->ComplainType);?></td>
+                  <td><?php  echo htmlentities($row->CompRaisedate);?></td>
+                  <?php if($row->Status==""){ ?>
+
+                     <td><?php echo "Not Updated Yet"; ?></td>
+<?php } else { ?>                  <td><?php  echo htmlentities($row->Status);?>
+                  </td>
+                  <?php } ?>
+                   <td> <a href="view-complain-detail.php?viewid=<?php echo htmlentities ($row->ID);?>">View Details</a></td>
                                         </tr>
                                         <?php $cnt=$cnt+1;}} ?>         
                                     </tbody>
@@ -118,9 +124,10 @@ foreach($results as $row)
                                     <tfoot>
                                         <tr>
                                             <th>S.NO</th>
-       <th>Visitor Name</th>
-        <th>Contact Number</th>
-        <th>Whom To Visit</th>
+     <th>Request ID</th>
+        <th>Complain Type</th>
+        <th>Complain Date</th>
+        <th>Complain Status</th>
          <th>Action</th>
                                         </tr>
                                     </tfoot>
@@ -156,4 +163,4 @@ foreach($results as $row)
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
 </body>
 </html>
-<?php   ?>
+<?php }  ?>

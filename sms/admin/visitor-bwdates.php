@@ -2,9 +2,9 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-// if (strlen($_SESSION['smsuid']==0)) {
-//   header('location:logout.php');
-//   } else{
+if (strlen($_SESSION['smsaid']==0)) {
+  header('location:logout.php');
+  } else{
     
 ?>
 <!doctype html>
@@ -52,7 +52,8 @@ include('includes/dbconnection.php');
                     </div>            
                     <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
-                            <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li> 
+                            <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>                            
+                            <li class="breadcrumb-item">Visitor Report</li>
                             <li class="breadcrumb-item active">Visitor Report</li>
                         </ul>
                     </div>
@@ -112,4 +113,4 @@ include('includes/dbconnection.php');
 </body>
 </html>
 
-<?php   ?>
+<?php }  ?>

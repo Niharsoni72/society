@@ -2,13 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+if (strlen($_SESSION['smsaid']==0)) {
+  header('location:logout.php');
+  } else{
+
+
 
   ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>Society Maintenance System ||Visitor Between Dates Reports</title>
+<title>Society Maintenance System || Manage Bill</title>
 
 <!-- VENDOR CSS -->
 <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -55,12 +60,12 @@ include('includes/dbconnection.php');
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-5 col-md-8 col-sm-12">                        
-                        <h2>Between Dates Reports</h2>
+                        <h2>Manage Bill</h2>
                     </div>            
                     <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Between Dates Reports</li>
+                            <li class="breadcrumb-item active">Manage Bill</li>
                         </ul>
                     </div>
                 </div>
@@ -70,32 +75,28 @@ include('includes/dbconnection.php');
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="m-t-0 header-title">Between Dates Reports</h4>
-                                    <?php
-$fdate=$_POST['fromdate'];
-$tdate=$_POST['todate'];
-$fuid=$_SESSION['smsfuid'];
-?>
-<h5 align="center" style="color:blue">Report from <?php echo $fdate?> to <?php echo $tdate?></h5>                           
+                            <h2>Manage Bill</h2>                            
                         </div>
                         <div class="body">
                             <div class="table-responsive">
- <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
-         <thead>
-         <tr>
-         <th>S.NO</th>
-       <th>Visitor Name</th>
-        <th>Contact Number</th>
-        <th>Whom To Visit</th>
-         <th>Action</th>
-          </tr>
-         </thead>
-         <tbody>
-                                        <?php
-$sql="SELECT * from tblvisitor where date(EnterDate) between '$fdate' and '$tdate' && FlatNo=:fuid";
-$query = $dbh -> prepare($sql);
-$query-> bindParam(':fuid', $fuid, PDO::PARAM_STR);
+                                <table class="table table-bordered table-hover js-basic-example dataTable table-custom">
+                                    <thead>
 
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Flat Number</th>
+                                            <th>Floor</th>
+                                            <th>Block</th>
+                                            <th>Flat Type</th>
+                                            <th>Maintenance Charge</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    
+                                    <tbody>
+                                        <?php
+$sql="SELECT * from tblflat";
+$query = $dbh -> prepare($sql);
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 
@@ -106,22 +107,26 @@ foreach($results as $row)
 {               ?>
                                         <tr>
                                            <td><?php echo htmlentities($cnt);?></td>
-                  <td><?php  echo htmlentities($row->VisitorName);?>
+                  <td><?php  echo htmlentities($row->FlatNum);?>
                   </td>
-                  <td><?php  echo htmlentities($row->MobileNumber);?></td>
-                  <td><?php  echo htmlentities($row->WhomtoMeet);?></td>
-                   <td> <a href="view-visitor-detail.php?editid=<?php echo htmlentities ($row->ID);?>">View Details</a></td>
+                  <td><?php  echo htmlentities($row->Floor);?></td>
+                  <td><?php  echo htmlentities($row->Block);?></td>
+                  <td><?php  echo htmlentities($row->FlatType);?></td>
+                  <td><?php  echo htmlentities($row->MCharge);?></td>
+                  <td><a href="view-bill-detail.php?viewid=<?php echo htmlentities ($row->FlatNum);?>&&bviewid=<?php echo htmlentities ($row->Block);?>">View Bill Details</a></td>
                                         </tr>
                                         <?php $cnt=$cnt+1;}} ?>         
                                     </tbody>
                                      
                                     <tfoot>
                                         <tr>
-                                            <th>S.NO</th>
-       <th>Visitor Name</th>
-        <th>Contact Number</th>
-        <th>Whom To Visit</th>
-         <th>Action</th>
+                                            <th>S.No</th>
+                                            <th>Flat Number</th>
+                                            <th>Floor</th>
+                                            <th>Block</th>
+                                            <th>Flat Type</th>
+                                            <th>Maintenance Charge</th>
+                                            <th>Action</th>
                                         </tr>
                                     </tfoot>
                                 </table>
@@ -156,4 +161,4 @@ foreach($results as $row)
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
 </body>
 </html>
-<?php   ?>
+<?php }  ?>

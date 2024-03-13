@@ -14,8 +14,9 @@ if (strlen($_SESSION['smsaid'] == 0)) {
         $block = $_POST['block'];
         $ftype = $_POST['ftype'];
         $mcharge = $_POST['mcharge'];
-        $password = md5($_POST['password']); // Hash the password
+        $password = md5($_POST['password']);
 
+        // Check if the flat number already exists
         $ret = "SELECT ID FROM tblflat WHERE FlatNum=:flatnum AND Block=:block";
         $query1 = $dbh->prepare($ret);
         $query1->bindParam(':flatnum', $flatnum, PDO::PARAM_STR);
@@ -23,7 +24,7 @@ if (strlen($_SESSION['smsaid'] == 0)) {
         $query1->execute();
         $result1 = $query1->fetchAll(PDO::FETCH_OBJ);
         if ($query1->rowCount() > 0) {
-            echo '<script>alert("In this block, this flat number already inserted.")</script>';
+            echo '<script>alert("In this block, this flat number already exists.")</script>';
         } else {
             $sql = "INSERT INTO tblflat (FlatNum, Floor, Block, FlatType, MCharge, Password) VALUES (:flatnum, :floor, :block, :ftype, :mcharge, :password)";
             $query = $dbh->prepare($sql);
@@ -52,21 +53,18 @@ if (strlen($_SESSION['smsaid'] == 0)) {
 <head>
     <title>Society Mentainence System || Add Flat</title>
 
-    <!-- VENDOR CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" href="../assets/vendor/animate-css/animate.min.css">
     <link rel="stylesheet" href="../assets/vendor/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="../assets/vendor/bootstrap-multiselect/bootstrap-multiselect.css">
     <link rel="stylesheet" href="../assets/vendor/parsleyjs/css/parsley.css">
 
-    <!-- MAIN CSS -->
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
 </head>
 
 <body class="theme-blue">
 
-    <!-- Page Loader -->
     <div class="page-loader-wrapper">
         <div class="loader">
             <div class="m-t-30"><img src="../assets/images/thumbnail.png" width="48" height="48" alt="Mplify"></div>
@@ -168,7 +166,6 @@ if (strlen($_SESSION['smsaid'] == 0)) {
         </div>
     </div>
 
-    <!-- Javascript -->
     <script src="assets/bundles/libscripts.bundle.js"></script>
     <script src="assets/bundles/vendorscripts.bundle.js"></script>
 
@@ -179,10 +176,8 @@ if (strlen($_SESSION['smsaid'] == 0)) {
     <script src="assets/bundles/morrisscripts.bundle.js"></script>
     <script>
         $(function() {
-            // validation needs name of the element
             $('#food').multiselect();
 
-            // initialize after multiselect
             $('#basic-form').parsley();
         });
     </script>

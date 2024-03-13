@@ -2,13 +2,18 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
+if (strlen($_SESSION['smsaid']==0)) {
+  header('location:logout.php');
+  } else{
+
+
 
   ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-<title>Society Maintenance System ||Visitor Between Dates Reports</title>
+<title>Society Maintenance System || Search Visitor</title>
 
 <!-- VENDOR CSS -->
 <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -55,12 +60,12 @@ include('includes/dbconnection.php');
             <div class="block-header">
                 <div class="row">
                     <div class="col-lg-5 col-md-8 col-sm-12">                        
-                        <h2>Between Dates Reports</h2>
+                        <h2>Search Visitor</h2>
                     </div>            
                     <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
-                            <li class="breadcrumb-item active">Between Dates Reports</li>
+                             <li class="breadcrumb-item active">Search Visitor</li>
                         </ul>
                     </div>
                 </div>
@@ -70,13 +75,22 @@ include('includes/dbconnection.php');
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="header">
-                            <h4 class="m-t-0 header-title">Between Dates Reports</h4>
-                                    <?php
-$fdate=$_POST['fromdate'];
-$tdate=$_POST['todate'];
-$fuid=$_SESSION['smsfuid'];
-?>
-<h5 align="center" style="color:blue">Report from <?php echo $fdate?> to <?php echo $tdate?></h5>                           
+                          
+                            <form id="basic-form" method="post">
+                                <div class="form-group">
+                                    <label>Search by Name or Mobile Number</label>
+                                    <input id="searchdata" type="text" name="searchdata" required="true" class="form-control"></div>
+                                
+                                <br>
+                                <button type="submit" class="btn btn-primary" name="search" id="submit">Search</button>
+                            </form>  
+                            <?php
+if(isset($_POST['search']))
+{ 
+
+$sdata=$_POST['searchdata'];
+  ?>
+  <h4 align="center">Result against "<?php echo $sdata;?>" keyword </h4>                        
                         </div>
                         <div class="body">
                             <div class="table-responsive">
@@ -92,10 +106,8 @@ $fuid=$_SESSION['smsfuid'];
          </thead>
          <tbody>
                                         <?php
-$sql="SELECT * from tblvisitor where date(EnterDate) between '$fdate' and '$tdate' && FlatNo=:fuid";
+$sql="SELECT * from tblvisitor where VisitorName like '$sdata%'||MobileNumber like '$sdata%'";
 $query = $dbh -> prepare($sql);
-$query-> bindParam(':fuid', $fuid, PDO::PARAM_STR);
-
 $query->execute();
 $results=$query->fetchAll(PDO::FETCH_OBJ);
 
@@ -112,7 +124,7 @@ foreach($results as $row)
                   <td><?php  echo htmlentities($row->WhomtoMeet);?></td>
                    <td> <a href="view-visitor-detail.php?editid=<?php echo htmlentities ($row->ID);?>">View Details</a></td>
                                         </tr>
-                                        <?php $cnt=$cnt+1;}} ?>         
+                                               
                                     </tbody>
                                      
                                     <tfoot>
@@ -123,6 +135,15 @@ foreach($results as $row)
         <th>Whom To Visit</th>
          <th>Action</th>
                                         </tr>
+                                         <?php 
+$cnt=$cnt+1;
+} } else { ?>
+  <tr>
+    <td colspan="8"> No record found against this search</td>
+
+  </tr>
+   
+<?php } }?>
                                     </tfoot>
                                 </table>
                             </div>
@@ -156,4 +177,4 @@ foreach($results as $row)
 <script src="assets/js/pages/tables/jquery-datatable.js"></script>
 </body>
 </html>
-<?php   ?>
+<?php }  ?>

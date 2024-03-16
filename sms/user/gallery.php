@@ -16,8 +16,11 @@
         }
     </style>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    
     <title>Society Gallery</title>
-    <h1 class="text-center main-heading">Society Gallery</h1>
+           
+    <h1 class="text-center main-heading">Society Gallery</h1>   
+    
 </head>
 <h4 class="celeb-heading">Diwali Celebration</h4>
 

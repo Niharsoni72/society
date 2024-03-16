@@ -71,7 +71,7 @@ if($query->rowCount()>0){
                         <?php } ?>
 
                                      
-                                        <li class="footer"><a href="total-complain-complain.php" class="more">See all notifications</a></li>
+                                        <li class="footer"><a href="total-complain.php" class="more">See all notifications</a></li>
                                     </ul>
                                 </li>
                                

@@ -2,32 +2,12 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-
-if (isset($_POST['submit'])) {
-    $uid = $_SESSION['smsuid'];
-    $name = $_POST['name'];
-    $mobno = $_POST['mobilenumber'];
-    $emobno = $_POST['emobilenumber'];
-    $Noofmember = $_POST['Noofmember'];
-    $add = $_POST['add'];
-    $sql = "update tblallotment set Name=:name,ContactNumber=:mobilenumber,EContactnum=:emobilenumber,Noofmember=:Noofmember,Address=:add where ID=:uid";
-    $query = $dbh->prepare($sql);
-    $query->bindParam(':name', $name, PDO::PARAM_STR);
-    $query->bindParam(':Noofmember', $Noofmember, PDO::PARAM_STR);
-    $query->bindParam(':mobilenumber', $mobno, PDO::PARAM_STR);
-    $query->bindParam(':emobilenumber', $emobno, PDO::PARAM_STR);
-    $query->bindParam(':add', $add, PDO::PARAM_STR);
-    $query->bindParam(':uid', $uid, PDO::PARAM_STR);
-    $query->execute();
-
-    echo '<script>alert("Your profile has been updated")</script>';
-}
 ?>
 <!doctype html>
 <html lang="en">
 
 <head>
-    <title>Society Mentainence System || User Profile</title>
+    <title>Society Maintenance System || User Profile</title>
 
     <!-- VENDOR CSS -->
     <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -44,12 +24,7 @@ if (isset($_POST['submit'])) {
 <body class="theme-blue">
 
     <!-- Page Loader -->
-    <div class="page-loader-wrapper">
-        <div class="loader">
-            <div class="m-t-30"><img src="../assets/images/thumbnail.png" width="48" height="48" alt="Mplify"></div>
-            <p>Please wait...</p>
-        </div>
-    </div>
+
     <!-- Overlay For Sidebars -->
     <div class="overlay" style="display: none;"></div>
 
@@ -83,15 +58,15 @@ if (isset($_POST['submit'])) {
                             </div>
                             <div class="body">
                                 <?php
-                                $uid = $_SESSION['smsuid'];
-                                $sql = "SELECT * from  tblallotment where ID=:uid";
+                                $flatnum = $_SESSION['smsfuid'];
+                                $sql = "SELECT * FROM tblallotment WHERE FlatNum = :flatnum";
                                 $query = $dbh->prepare($sql);
-                                $query->bindParam(':uid', $uid, PDO::PARAM_STR);
+                                $query->bindParam(':flatnum', $flatnum, PDO::PARAM_STR);
                                 $query->execute();
                                 $results = $query->fetchAll(PDO::FETCH_OBJ);
                                 $cnt = 1;
                                 if ($query->rowCount() > 0) {
-                                    foreach ($results as $row) {               ?>
+                                    foreach ($results as $row) { ?>
                                         <form id="basic-form" method="post">
                                             <div class="form-group">
                                                 <label>Name</label>
@@ -143,26 +118,6 @@ if (isset($_POST['submit'])) {
 
     </div>
 
-    <!-- Javascript -->
-    <script src="assets/bundles/libscripts.bundle.js"></script>
-    <script src="assets/bundles/vendorscripts.bundle.js"></script>
-
-    <script src="../assets/vendor/bootstrap-multiselect/bootstrap-multiselect.js"></script>
-    <script src="../assets/vendor/parsleyjs/js/parsley.min.js"></script>
-
-    <script src="assets/bundles/mainscripts.bundle.js"></script>
-    <script src="assets/bundles/morrisscripts.bundle.js"></script>
-    <script>
-        $(function() {
-            // validation needs name of the element
-            $('#food').multiselect();
-
-            // initialize after multiselect
-            $('#basic-form').parsley();
-        });
-    </script>
 </body>
 
 </html>
-
-<?php  ?>

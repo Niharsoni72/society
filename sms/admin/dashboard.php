@@ -94,7 +94,7 @@ if (strlen($_SESSION['smsaid'] == 0)) {
                                         $results = $query->fetchAll(PDO::FETCH_OBJ);
                                         $totalbill = $query->rowCount();
                                         ?>
-                                        <h6><i class="fa fa-comments-o m-r-10"></i><a href="#">Total Bills</a></h6>
+                                        <h6><i class="fa fa-comments-o m-r-10"></i><a href="manage-bill.php">Total Bills</a></h6>
                                         <span><?php echo htmlentities($totalbill); ?></span>
                                     </div>
                                 </div>

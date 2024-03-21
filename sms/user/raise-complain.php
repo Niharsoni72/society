@@ -2,9 +2,9 @@
 session_start();
 error_reporting(0);
 include('includes/dbconnection.php');
-// if (strlen($_SESSION['smsuid'] == 0)) {
-//     header('location:logout.php');
-// } else {
+if (strlen($_SESSION['smsuid'] == 0)) {
+    header('location:logout.php');
+} else {
     if (isset($_POST['submit'])) {
 
         $uid = $_SESSION['smsuid'];
@@ -158,4 +158,4 @@ include('includes/dbconnection.php');
 
     </html>
 
-<?php   ?>
+<?php }  ?>

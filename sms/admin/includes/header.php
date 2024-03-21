@@ -1,4 +1,4 @@
- <nav class="navbar navbar-fixed-top">
+<nav class="navbar navbar-fixed-top">
         <div class="container-fluid">
 
             <div class="navbar-brand">
@@ -61,7 +61,7 @@ if($query->rowCount()>0){
                       
                        
                         <li>
-                           <a href="#">
+                           <a href="unresolved-complain.php">
                                 <div>
                                     <i class="fa fa-comment fa-fw"></i>No Records
                                    

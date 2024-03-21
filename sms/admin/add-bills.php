@@ -24,7 +24,7 @@ if (strlen($_SESSION['smsaid']==0)) {
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
-<script>
+<script>    
 function getblock(val) {
   $.ajax({
 type:"POST",

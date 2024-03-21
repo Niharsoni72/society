@@ -65,11 +65,6 @@ try {
                             <h1>Dashboard</h1>
                         </div>
 
-                        <!-- dashboard background photo -->
-                        <!-- <section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen align-items-center justify-content-center" style="height: 500px;"> -->
 
 
 
@@ -103,9 +98,9 @@ try {
                     $query2->execute();
                     $result2 = $query2->fetchAll(PDO::FETCH_OBJ);
                     foreach ($result2 as $row) {
-                    ?>
-                        <h2 style="text-align: center;color: red">Welcome to Society Management System!! <?php echo htmlentities($row->Name); ?></h2>
-                    <?php } ?>
+                        ?>  
+                        <h2 style="text-align: center;color: red">Welcome to Society Management System!! <?php echo htmlentities($row->Name);?></h2>
+                         <?php } ?> 
 
 
 

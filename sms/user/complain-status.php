@@ -1,10 +1,10 @@
 <?php
 session_start();
-error_reporting(0);
+// error_reporting(0);
 include('includes/dbconnection.php');
-// if (strlen($_SESSION['smsuid'] == 0)) {
-//     header('location:logout.php');
-// } else {
+if (strlen($_SESSION['smsuid'] == 1)) {
+    header('location:logout.php');
+} else {
 
 
 
@@ -166,4 +166,4 @@ include('includes/dbconnection.php');
     </body>
 
     </html>
-<?php   ?>
+    <?php  }?>

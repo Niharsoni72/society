@@ -36,8 +36,8 @@
 								<li><a href="index.php">Home</a></li>
 								<!-- <li><a href="admin/login.php">Admin</a></li>  -->
 								<li><a href="user/login.php">User</a></li>
-								<li><a href="user/gallery.php">Gallery</a></li>
-								<li><a href="user/contact.php">Contact US</a></li>
+								<li><a href="gallery.php">Gallery</a></li>
+								<li><a href="contact.php">Contact US</a></li>
 								
 						    </ul>
 						  </div>						

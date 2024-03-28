@@ -28,64 +28,64 @@
 <body>
     <div class="d-flex  mx-5">
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/diwali2.jpg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/diwali2.jpg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/diwali3.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/diwali3.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/diwali4.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/diwali4.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/diwali3.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/diwali3.jpeg" alt="Card image cap">
         </div>
     </div>
     <h4 class="celeb-heading">Holi Celebration</h4>
 
     <div class="d-flex  mx-5">
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/holi1.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/holi1.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/holi2.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/holi2.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/holi3.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/holi3.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/holi4.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/holi4.jpeg" alt="Card image cap">
         </div>
     </div>
     <h4 class="celeb-heading">Ganesh Chatrurthi Celebration</h4>
 
     <div class="d-flex  mx-5">
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/gc1.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/gc1.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/gc2.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/gc2.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/gc3.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/gc3.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/gc4.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/gc4.jpeg" alt="Card image cap">
         </div>
     </div>
     <h4 class="celeb-heading">Navratri Celebration</h4>
 
     <div class="d-flex  mx-5">
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/nav1.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/nav1.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/nav2.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/nav2.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/nav5.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/nav5.jpeg" alt="Card image cap">
         </div>
         <div class="card mr-5 ml-5" style="width: 18rem;">
-            <img class="card-img-top" src="../assets/images/nav4.jpeg" alt="Card image cap">
+            <img class="card-img-top" src="./assets/images/nav4.jpeg" alt="Card image cap">
         </div>
     </div>
 

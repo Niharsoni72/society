@@ -62,54 +62,51 @@ try {
                 <div class="block-header">
                     <div class="row">
                         <div class="col-lg-5 col-md-8 col-sm-12">
-                            <h1>Dashboard</h1>
+
+
                         </div>
+                        <div class="row">
+                            <?php
+                            $uid = $_SESSION['smsuid'];
+                            $sql2 = "SELECT * from   tblallotment where ID=:uid";
+                            $query2 = $dbh->prepare($sql2);
+                            $query2->bindParam(':uid', $uid, PDO::PARAM_STR);
+                            $query2->execute();
+                            $result2 = $query2->fetchAll(PDO::FETCH_OBJ);
+                            foreach ($result2 as $row) {
+                            ?>
+                                <h1 style="text-align: center ;color: red"> Welcome to Society Management System!! <?php echo htmlentities($row->Name); ?></h1>
+                            <?php } ?>
 
 
 
+                            <div class="banner-content col-lg-16 col-md-14">
+                                <div class="content">
 
-                        <div class="banner-content col-lg-12 col-md-12">
-                            <div class="content">
+                                    <img class="content-image img-fluid d-block mx-auto" src="../assets/images/photo-1627864062431-68dab340c392.avif" alt="">
 
-                                <img class="content-image img-fluid d-block mx-auto" src="../assets/images/photo-1627864062431-68dab340c392.avif" alt="">
-
-                                </a>
+                                    </a>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-                </section>
 
-                <!-- <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+
+                    <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
                     </div>
                 </div>
-            </div> -->
-
-                <div class="row">
-                    <?php
-                    $uid = $_SESSION['smsuid'];
-                    $sql2 = "SELECT * from   tblallotment where ID=:uid";
-                    $query2 = $dbh->prepare($sql2);
-                    $query2->bindParam(':uid', $uid, PDO::PARAM_STR);
-                    $query2->execute();
-                    $result2 = $query2->fetchAll(PDO::FETCH_OBJ);
-                    foreach ($result2 as $row) {
-                        ?>  
-                        <h2 style="text-align: center;color: red">Welcome to Society Management System!! <?php echo htmlentities($row->Name);?></h2>
-                         <?php } ?> 
-
-
-
-                </div>
-
-
-
             </div>
+
         </div>
+
+
+
+    </div>
+    </div>
 
     </div>
 

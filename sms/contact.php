@@ -14,13 +14,9 @@
             justify-content: center;
             align-items: center;
             min-height: 100vh;
-            
             margin: 0;
-            
             padding: 0;
-            
             position: relative;
-            
         }
 
         .contact-heading {
@@ -37,6 +33,7 @@
             top: 0px;
             left: 0;
             right: 0;
+            cursor: pointer; /* Add cursor pointer to indicate clickable */
         }
 
         .main-heading {
@@ -59,7 +56,8 @@
 </head>
 
 <body>
-    <div class="contact-heading">Contact Us</div>
+    
+    <a href="index.php" class="contact-heading">Contact Us</a>
     <div class="container"></div>
 
     <footer>
@@ -73,7 +71,6 @@
         </div>
         <div style="clear: both;"></div> <!-- Clear float to prevent overlap -->
     </footer>
-
 
 </body>
 

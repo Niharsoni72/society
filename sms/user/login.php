@@ -101,6 +101,7 @@ if(isset($_POST['login']))
                                     <div class="bottom">
                                         <span class="helper-text m-b-10"><i class="fa fa-home"></i> <a href="../index.php">Back Home</a></span>
                                     </div> 
+                                   
                                 </form>
                             </div>
                         </div>

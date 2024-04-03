@@ -105,7 +105,7 @@ include('includes/dbconnection.php');
                                     }
                                 } ?>
                                     <br>
-                                    <button type="submit" class="btn btn-primary" name="submit" id="submit">Update</button>
+                                    <!-- <button type="submit" class="btn btn-primary" name="submit" id="submit">Update</button> -->
                                         </form>
                             </div>
                         </div>

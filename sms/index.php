@@ -19,6 +19,31 @@
 	</head>
 
 	<body>
+		<style>
+			.default-header {
+				background-color: black;
+				/* Set background color to white */
+				padding: 10px 0;
+				/* Add padding for better spacing */
+			}
+
+			.navbar {
+				background-color: white !important;
+				/* Override default Bootstrap background color */
+			}
+
+			.navbar-nav .nav-link {
+				color: white !important;
+				/* Set text color to white */
+			}
+
+			.navbar-nav .nav-link:hover {
+				color: whitesmoke !important;
+				/* Set text color to blue on hover */
+			}
+		</style>
+
+
 
 		<!-- Start Header Area -->
 		<header class="default-header">
@@ -60,7 +85,9 @@
 			}
 
 			.mySlides {
-				display: none;
+				display: block;
+				width: 100%;
+				/* Set slide width to 100% */
 			}
 
 			img {
@@ -68,9 +95,9 @@
 			}
 
 			.slideshow-container {
-				max-width: 1300px;
-				position: relative;
-				margin: auto;
+				max-width: 100%;
+				overflow: hidden;
+				/* Hide overflowing content */
 			}
 
 			.numbertext {
@@ -79,16 +106,6 @@
 				padding: 8px 12px;
 				position: absolute;
 				top: 0;
-			}
-
-			.dot {
-				height: 15px;
-				width: 15px;
-				margin: 0 2px;
-				background-color: #bbb;
-				border-radius: 50%;
-				display: inline-block;
-				transition: background-color 0.6s ease;
 			}
 
 			.fade {
@@ -102,7 +119,7 @@
 				}
 
 				to {
-					opacity: 2
+					opacity: 3
 				}
 			}
 		</style>
@@ -116,13 +133,13 @@
 
 				<div class="mySlides fade">
 					<div class="numbertext">1 / 3</div>
-					<img src="../sms/assets/images/HomeSMS.JPG" style="width:100%">
+					<img src="../sms/assets/images/HOMENEW.jpeg" style="width:100%">
 					<div class="text"></div>
 				</div>
 
 				<div class="mySlides fade">
 					<div class="numbertext">2 / 3</div>
-					<img src="../sms/img/header-bg.jpg" style="width:100%" height="750px;">
+					<img src="../sms/img/0993_f001.jpg" style="width:100%" height="750px;">
 					<div class="text"></div>
 				</div>
 
@@ -135,11 +152,6 @@
 			</div>
 			<br>
 
-			<div style="text-align:center">
-				<span class="dot"></span>
-				<span class="dot"></span>
-				<span class="dot"></span>
-			</div>
 
 			<script>
 				let slideIndex = 0;
@@ -148,7 +160,6 @@
 				function showSlides() {
 					let i;
 					let slides = document.getElementsByClassName("mySlides");
-					let dots = document.getElementsByClassName("dot");
 					for (i = 0; i < slides.length; i++) {
 						slides[i].style.display = "none";
 					}
@@ -156,84 +167,82 @@
 					if (slideIndex > slides.length) {
 						slideIndex = 1
 					}
-					for (i = 0; i < dots.length; i++) {
-						dots[i].className = dots[i].className.replace(" active", "");
-					}
 					slides[slideIndex - 1].style.display = "block";
-					dots[slideIndex - 1].className += " active";
 					setTimeout(showSlides, 2000);
 				}
 			</script>
-
-
-			<!-- <section class="banner-area relative" id="home">
-				<div class="overlay overlay-bg"></div>
-				<div class="container">
-					<div class="row fullscreen align-items-center justify-content-center" style="height: 800px;">
-						<div class="banner-content col-lg-12 col-md-12">
-							<h1 class="text-uppercase">
-								Society Management System
-							</h1>
-						
-						</div>
-					</div>
-				</div>
-			</section> 		 -->
-
-
-
-			<!-- Start city Area -->
-			<section class="city-area section-gap">
+			<!-- start footer Area -->
+			<footer class="footer-area section-gap" style="background-color: #3b3d5c; padding: 40px 0;">
 				<div class="container">
 					<div class="row">
-						<div class="col-lg-20 col-md-20 mb-20">
-							<div class="content">
-								<img class="content-image img-fluid d-block mx-auto" src="img/service-bg.jpg" alt="">
+						<!-- Left Side: Contact Us Information -->
+						<div class="col-lg-6" style="margin-bottom: 40px;">
+							<a href="contact.php">
+								<h3 style="color: white; font-size: 24px; font-weight: bold;">Contact Us</h3>
+							</a>
+							<p style="color: #ccc; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Location: Your Address</p>
+							<p style="color: #ccc; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Email: example@example.com</p>
+							<p style="color: #ccc; border-bottom: 1px solid #ccc; padding-bottom: 10px;">Phone: +1234567890</p>
+						</div>
 
+						<!-- Right Side: Social Media Links -->
+						<div class="col-lg-6" style="text-align: right;"> <!-- Adjusted to align content to the right -->
+							<div style="color: white;">
+								<h3 style="color: white; font-size: 24px; font-weight: bold; margin-bottom: 1	lk0px;">Social Media</h3>
+								<div style="display: flex; align-items: center;">
+									<ul class="social-icons" style="list-style: none; padding: 0; margin-right: -315px;">
+										<li style="margin-bottom: 10px;">
+											<a href="https://www.facebook.com/">
+												<svg xmlns="http://www.w3.org/2000/svg" width="700" height="16" fill="currentColor" class="bi bi-facebook" viewBox="0 0 16 16">
+													<path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951" />
+												</svg>
+											</a>
+										</li>
+									</ul>
+									<p style="margin-right: 20px;">Facebook</p>
+								</div>
+								<div style="display: flex; align-items: center;">
+									<ul class="social-icons" style="list-style: none; padding: 10; margin-right: -315px;">
+										<li style="margin-bottom: 10px;">
+											<a href="https://www.instagram.com/">
+												<svg xmlns="http://www.w3.org/2000/svg" width="700" height="16" fill="currentColor" class="bi bi-instagram" viewBox="0 0 16 16">
+													<path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.9 3.9 0 0 0-1.417.923A3.9 3.9 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.9 3.9 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.9 3.9 0 0 0-.923-1.417A3.9 3.9 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599s.453.546.598.92c.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.5 2.5 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.5 2.5 0 0 1-.92-.598 2.5 2.5 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233s.008-2.388.046-3.231c.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92s.546-.453.92-.598c.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92m-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217m0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334" />
+												</svg>
+											</a>
+										</li>
+									</ul>
+									<p style="margin-right: 20px;">Instagram</p>
+								</div>
+								<div style="display: flex; align-items: center;">
+									<ul class="social-icons" style="list-style: none; padding: 0; margin-right: -315px;">
+										<li style="margin-bottom: 10px;">
+											<a href="https://twitter.com/i/flow/login">
+												<svg xmlns="http://www.w3.org/2000/svg" width="700" height="16" fill="currentColor" class="bi bi-twitter" viewBox="0 0 16 16">
+													<path d="M5.026 15c6.038 0 9.341-5.003 9.341-9.334q.002-.211-.006-.422A6.7 6.7 0 0 0 16 3.542a6.7 6.7 0 0 1-1.889.518 3.3 3.3 0 0 0 1.447-1.817 6.5 6.5 0 0 1-2.087.793A3.286 3.286 0 0 0 7.875 6.03a9.32 9.32 0 0 1-6.767-3.429 3.29 3.29 0 0 0 1.018 4.382A3.3 3.3 0 0 1 .64 6.575v.045a3.29 3.29 0 0 0 2.632 3.218 3.2 3.2 0 0 1-.865.115 3 3 0 0 1-.614-.057 3.28 3.28 0 0 0 3.067 2.277A6.6 6.6 0 0 1 .78 13.58a6 6 0 0 1-.78-.045A9.34 9.34 0 0 0 5.026 15" />
+												</svg>
+											</a>
+										</li>
+									</ul>
+									<p style="margin-right: 20px;">Twitter</p>
+								</div>
 							</div>
 						</div>
-						<!-- <div class="col-lg-8 col-md-8 mb-10">
-							<div class="content">
-
-								<img class="content-image img-fluid d-block mx-auto" src="img/p2.jpg" alt="">
-
-								</a>
-							</div> -->
-							<!-- <div class="row city-bottom">
-								<div class="col-lg-6 col-md-6 mt-30">
-									<div class="content">
-
-										<img class="content-image img-fluid d-block mx-auto" src="img/p3.jpg" alt="">
-
-										</a>
-									</div>
-								</div>
-								<div class="col-lg-6 col-md-8 mt-30">
-									<div class="content">
-										<img class="content-image img-fluid d-block mx-auto" src="img/p4.jpg" alt="">
-
-									</div>
-								</div>
-							</div> -->
-						</div>
-					</div>
-				</div>
-			</section>
-			<!-- End city Area -->
-
-
-			<!-- start footer Area -->
-			<footer class="footer-area section-gap">
-				<div class="container">
-
-					<div class="footer-bottom d-flex justify-content-center align-items-center flex-wrap">
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-						<h2 class="footer-text m-0" style="color: red">Society Management System </h2>
-						<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
 					</div>
 				</div>
 			</footer>
-			<!-- End footer Area -->
+
+
+			<footer class="footer-area section-gap" style="background-color: white; padding: 20px 0;">
+				<div class="container">
+					<div class="row">
+						<!-- Content for the second footer -->
+						<div class="col-lg-12 text-center">
+							<h5 style="color: #333;">Developed by Riya Rojesara & Niral Parmar</h5>
+						</div>
+					</div>
+				</div>
+			</footer>
+
 
 			<script src="js/vendor/jquery-2.2.4.min.js"></script>
 			<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>

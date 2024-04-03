@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.4.1/dist/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
     <style>
         body {
-            background-image: url("./assets/images/G-1.jpg");
+            background-image: url("../sms/img/0993_f001.jpg");
             background-size: cover;
             background-position: center;
             display: flex;
@@ -33,7 +33,7 @@
             top: 0px;
             left: 0;
             right: 0;
-            cursor: pointer; /* Add cursor pointer to indicate clickable */
+            cursor: pointer;
         }
 
         .main-heading {
@@ -50,13 +50,12 @@
             background-color: #3b3d5c;
             padding: 20px;
         }
-
     </style>
     <title>Contact Us</title>
 </head>
 
 <body>
-    
+
     <a href="index.php" class="contact-heading">Contact Us</a>
     <div class="container"></div>
 
@@ -69,7 +68,7 @@
         <div style="float: right;">
             <p></p>
         </div>
-        <div style="clear: both;"></div> <!-- Clear float to prevent overlap -->
+        <div style="clear: both;"></div>
     </footer>
 
 </body>

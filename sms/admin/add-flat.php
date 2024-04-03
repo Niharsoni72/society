@@ -61,6 +61,7 @@ if (strlen($_SESSION['smsaid'] == 0)) {
 
     <link rel="stylesheet" href="assets/css/main.css">
     <link rel="stylesheet" href="assets/css/color_skins.css">
+  
 </head>
 
 <body class="theme-blue">

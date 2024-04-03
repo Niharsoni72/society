@@ -12,7 +12,7 @@ if (strlen($_SESSION['smsaid'] == 0)) {
     <html lang="en">
 
     <head>
-        <title>Society Mentainence System || Dashboard</title>
+        <title>Society Maintenance System || Dashboard</title>
 
         <!-- VENDOR CSS -->
         <link rel="stylesheet" href="../assets/vendor/bootstrap/css/bootstrap.min.css">
@@ -24,6 +24,15 @@ if (strlen($_SESSION['smsaid'] == 0)) {
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/color_skins.css">
+
+        <style>
+            body {
+                background-image: url('../img/service-bg.jpg');
+                background-size: cover;
+                background-repeat: no-repeat;
+                background-attachment: fixed;
+            }
+        </style>
 
     </head>
 
@@ -44,20 +53,12 @@ if (strlen($_SESSION['smsaid'] == 0)) {
             <?php include_once('includes/header.php'); ?>
 
             <?php include_once('includes/sidebar.php'); ?>
-
             <div id="main-content">
                 <div class="container-fluid">
                     <div class="block-header">
                         <div class="row">
                             <div class="col-lg-5 col-md-8 col-sm-12">
-                                <h2>Dashboard</h2>
-                            </div>
-                            <div class="col-lg-7 col-md-4 col-sm-12 text-right">
-                                <ul class="breadcrumb justify-content-end">
-                                    <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
-                                    <li class="breadcrumb-item">Dashboard</li>
-
-                                </ul>
+                                <h2 style="color: black; font-weight: bold;">Dashboard</h2> <!-- Added font-weight -->
                             </div>
                         </div>
                     </div>

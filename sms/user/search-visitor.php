@@ -34,7 +34,7 @@ include('includes/dbconnection.php');
     }
 </style>
 </head>
-<body class="theme-blue">
+<body class="theme-blue" style="background-image: url('../img/vistor.jpg');">
 
 <!-- Page Loader -->
 <div class="page-loader-wrapper">
@@ -62,7 +62,7 @@ include('includes/dbconnection.php');
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item">Search Visitor</li>
-                            <li class="breadcrumb-item active">Search Visitor</li>
+                            <!-- <li class="breadcrumb-item active">Search Visitor</li> -->
                         </ul>
                     </div>
                 </div>

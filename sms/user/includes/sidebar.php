@@ -9,8 +9,7 @@
                         <a href="view-bill.php"><i class="icon-diamond"></i><span>View Bill</span></a>
                       
                     </li>
-                  
-                   
+                    
                     <li>
                         <a href="view-visitorlist.php"><i class="icon-users"></i><span>Visitors</span></a>
                         
@@ -30,7 +29,11 @@
                         <a href="visitor-bwdates.php"><i class="icon-folder"></i><span>Report</span></a>
                        
                     </li>
-                                          
+                    <li>
+                        <a href="shownotice.php"><i class="icon-folder"></i><span>Notice Board</span></a>
+                       
+                    </li>
+                                                            
                    
                 </ul>
             </nav>

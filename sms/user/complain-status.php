@@ -28,17 +28,10 @@ if (strlen($_SESSION['smsuid'] == 1)) {
         <!-- MAIN CSS -->
         <link rel="stylesheet" href="assets/css/main.css">
         <link rel="stylesheet" href="assets/css/color_skins.css">
-        <style>
-            td.details-control {
-                background: url('../assets/images/details_open.png') no-repeat center center;
-                cursor: pointer;
-            }
 
-            tr.shown td.details-control {
-                background: url('../assets/images/details_close.png') no-repeat center center;
-            }
-        </style>
     </head>
+
+   
 
     <body class="theme-blue">
 

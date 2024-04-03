@@ -58,6 +58,13 @@
                             <li><a href="visitor-bwdates.php">Visitor b/w dates</a></li>
                             </ul>
                     </li>
+                    <li>
+                        <a href="" class="has-arrow"><i class="icon-folder"></i><span>Notice Board</span></a>
+                        <ul>                                    
+                            <li><a href="notice.php">Add Notice</a></li>
+                            <li><a href="managenotice.php">Mange Notice</a></li>
+                            </ul>
+                    </li>
                                           
                    
                 </ul>

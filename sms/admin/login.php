@@ -71,6 +71,15 @@ echo "<script>alert('Invalid Details');</script>";
 <!-- MAIN CSS -->
 <link rel="stylesheet" href="assets/css/main.css">
 <link rel="stylesheet" href="assets/css/color_skins.css">
+<style>
+        body {
+            background-image: url('../img/society2.jpeg');
+            background-size: cover;
+            background-repeat: no-repeat;
+            background-position: center top; 
+            
+        }
+    </style>
 </head>
 
 <body class="theme-blue">
@@ -94,7 +103,7 @@ echo "<script>alert('Invalid Details');</script>";
                         
                         <div class="card">
                             <div class="header">
-                                <p class="lead">Sign in to start your session</p>
+                                <p class="lead">Login</p>
                             </div>
                             <div class="body">
                                 <form class="form-auth-small" action="" method="post">

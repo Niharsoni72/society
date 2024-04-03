@@ -75,7 +75,7 @@ try {
                             $result2 = $query2->fetchAll(PDO::FETCH_OBJ);
                             foreach ($result2 as $row) {
                             ?>
-                                <h1 style="text-align: center ;color: red"> Welcome to Society Management System!! <?php echo htmlentities($row->Name); ?></h1>
+                                <h1 style="text-align: center ;color: black"> Welcome to Society Management System!! <?php echo htmlentities($row->Name); ?></h1>
                             <?php } ?>
 
 
@@ -83,7 +83,7 @@ try {
                             <div class="banner-content col-lg-16 col-md-14">
                                 <div class="content">
 
-                                    <img class="content-image img-fluid d-block mx-auto" src="../assets/images/photo-1627864062431-68dab340c392.avif" alt="">
+                                    <img class="content-image img-fluid d-block mx-auto" src="../img/society2.jpeg" alt="">
 
                                     </a>
                                 </div>
@@ -92,12 +92,12 @@ try {
                     </div>
 
 
-                    <div class="col-lg-7 col-md-4 col-sm-12 text-right">
+                    <!-- <div class="col-lg-7 col-md-4 col-sm-12 text-right">
                         <ul class="breadcrumb justify-content-end">
                             <li class="breadcrumb-item"><a href="dashboard.php"><i class="icon-home"></i></a></li>
                             <li class="breadcrumb-item active">Dashboard</li>
                         </ul>
-                    </div>
+                    </div> -->
                 </div>
             </div>
 
